@@ -7,7 +7,7 @@ import { FrontpageStyled } from './Frontpage.styles';
 const Frontpage: React.FC = () => {
   return (
     <FrontpageStyled>
-      <p>Hello World!</p>
+      <p>Frontpage</p>
     </FrontpageStyled>
   );
 };
