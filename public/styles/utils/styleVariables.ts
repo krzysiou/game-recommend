@@ -8,10 +8,16 @@ type Colors = {
   error: string;
 };
 
+type Paddings = {
+  mobile: string;
+  web: string;
+};
+
 type StyleVariables = {
   fontFamily: string;
   mediaBreakpoint: string;
   colors: Colors;
+  paddings: Paddings;
 };
 
 const styleVariables: StyleVariables = {
@@ -26,7 +32,11 @@ const styleVariables: StyleVariables = {
     accentLighter: '#e8e8e8',
     accentDark: '#2d3142',
     error: '#d11f1f',
-  }
+  },
+  paddings: {
+    mobile: '80px 0 0',
+    web: '120px 0 0',
+  },
 };
 
 export { styleVariables };

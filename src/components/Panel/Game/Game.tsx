@@ -103,10 +103,10 @@ const Game: React.FC<PanelProps> = ({ gameBundle }) => {
 
   const commentsComponent = comments.length !== 0 && (
     <div className="comments">
-      <p>COMMENTS:</p>
+      <p className="comments-header">COMMENTS:</p>
       {comments.map(({ comment: value, user }, index) => {
         return (
-          <div key={index}>
+          <div key={index} className="comment">
             <p>Author: {user.username}</p>
             <p>{value}</p>
           </div>
@@ -123,44 +123,46 @@ const Game: React.FC<PanelProps> = ({ gameBundle }) => {
         Score: {average} Count: {count}
       </p>
       <p>Added by: {author.username}</p>
-      <button
-        type="button"
-        onClick={() => handleScore(1)}
-        className="submit-button"
-      >
-        1
-      </button>
-      <button
-        type="button"
-        onClick={() => handleScore(2)}
-        className="submit-button"
-      >
-        2
-      </button>
-      <button
-        type="button"
-        onClick={() => handleScore(3)}
-        className="submit-button"
-      >
-        3
-      </button>
-      <button
-        type="button"
-        onClick={() => handleScore(4)}
-        className="submit-button"
-      >
-        4
-      </button>
-      <button
-        type="button"
-        onClick={() => handleScore(5)}
-        className="submit-button"
-      >
-        5
-      </button>
+      <div className="scores">
+        <button
+          type="button"
+          onClick={() => handleScore(1)}
+          className="score-button"
+        >
+          <p>1</p>
+        </button>
+        <button
+          type="button"
+          onClick={() => handleScore(2)}
+          className="score-button"
+        >
+          <p>2</p>
+        </button>
+        <button
+          type="button"
+          onClick={() => handleScore(3)}
+          className="score-button"
+        >
+          <p>3</p>
+        </button>
+        <button
+          type="button"
+          onClick={() => handleScore(4)}
+          className="score-button"
+        >
+          <p>4</p>
+        </button>
+        <button
+          type="button"
+          onClick={() => handleScore(5)}
+          className="score-button"
+        >
+          <p>5</p>
+        </button>
+      </div>
       <form ref={ref}>
         <p className="label">Comment</p>
-        <div className="input-frame input-username">
+        <div className="input-frame">
           <input
             type="text"
             className="form-input"

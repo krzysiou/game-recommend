@@ -1,13 +1,20 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 
 import { NotFoundStyled } from './NotFound.styles';
 
 const NotFound: React.FC = () => {
   return (
     <NotFoundStyled>
-      <p>404 page not found . . .</p>
+      <p className="hero">404</p>
+      <p className="description">
+        Oops . . . we couldn&apos;t find what you were looking for.
+      </p>
+      <Link href="/" className="link">
+        Home
+      </Link>
     </NotFoundStyled>
   );
 };
