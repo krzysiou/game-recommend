@@ -10,9 +10,14 @@ type Game = {
   description: string;
 };
 
+type Comment = {
+  comment: string;
+  user: User;
+};
+
 type GameBundle = {
   author: User;
   game: Game;
 };
 
-export type { User, Game, GameBundle };
+export type { User, Game, Comment, GameBundle };

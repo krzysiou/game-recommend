@@ -38,6 +38,9 @@ const Panel: React.FC = () => {
       }
     );
 
+    clearTitle();
+    clearDescription();
+
     const bundles = await fetchGameBundles();
 
     setGameBundles(bundles);
