@@ -27,7 +27,7 @@ const styleVariables: StyleVariables = {
   colors: {
     main: '#4f5d75',
     light: '#ffffff',
-    action: '#ef8354',
+    action: '#77d991',
     accentLight: '#bfc0c0',
     accentLighter: '#e8e8e8',
     accentDark: '#2d3142',
