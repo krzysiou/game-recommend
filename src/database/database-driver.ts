@@ -8,6 +8,5 @@ const {
 
 const auth = neo4j.auth.basic(username, password);
 const driver = neo4j.driver(connectionUrl, auth);
-const databaseClient = driver.session();
 
-export { databaseClient };
+export { driver };

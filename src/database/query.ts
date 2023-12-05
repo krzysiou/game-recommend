@@ -1,7 +1,7 @@
-import { databaseClient } from './database-client';
+import { driver } from './database-driver';
 
 const query = async <T>(content: string) => {
-  const data = await databaseClient.run<T>(content);
+  const data = await driver.session().run<T>(content);
 
   return data;
 };

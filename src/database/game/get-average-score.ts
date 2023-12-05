@@ -8,7 +8,10 @@ const getAverageParameters = (records) => {
     score += Number(rating);
   });
 
-  return score / records.length;
+  const count = records.length;
+  const average = score / count;
+
+  return { average, count };
 };
 
 const getAverageScore = async (id: string) => {
@@ -17,7 +20,7 @@ const getAverageScore = async (id: string) => {
   );
 
   if (result.records.length === 0) {
-    return undefined;
+    return { average: 0, count: 0 };
   }
 
   return getAverageParameters(result.records);

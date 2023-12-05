@@ -17,14 +17,18 @@ type PanelProps = {
 };
 
 const Game: React.FC<PanelProps> = ({ gameBundle }) => {
-  const [score, setScore] = useState(0);
+  const [average, setAverage] = useState(0);
+  const [count, setCount] = useState(0);
 
   const { author, game } = gameBundle;
 
   const { session } = useSession();
 
   useEffect(() => {
-    fetchScore(game.id).then((result) => setScore(result));
+    fetchScore(game.id).then(({ average, count }) => {
+      setAverage(average);
+      setCount(count);
+    });
   }, [game.id]);
 
   const handleScore = async (scoreValue: number) => {
@@ -36,14 +40,19 @@ const Game: React.FC<PanelProps> = ({ gameBundle }) => {
       }
     );
 
-    fetchScore(game.id).then((result) => setScore(result));
+    fetchScore(game.id).then(({ average, count }) => {
+      setAverage(average);
+      setCount(count);
+    });
   };
 
   return (
     <GameStyled>
       <p>Title: {game.title}</p>
       <p>Description: {game.description}</p>
-      <p>Score: {score}</p>
+      <p>
+        Score: {average} Count: {count}
+      </p>
       <p>Added by: {author.username}</p>
       <button
         type="button"
