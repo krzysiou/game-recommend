@@ -1,9 +1,7 @@
 import { NextResponse } from 'next/server';
-import { v4 as uuid } from 'uuid';
 
-import { createUser } from '../../../database/user/create-user';
-import { findUser } from '../../../database/user/find-user';
-import { generateJWT, getExpireDate } from '../../../utils/jwt-token';
+import { findUser } from '../../../../database/user/find-user';
+import { generateJWT, getExpireDate } from '../../../../utils/jwt-token';
 
 type Payload = {
   username: string;
@@ -20,30 +18,27 @@ export async function POST(request: Request) {
     );
   }
 
-  const id = uuid();
-
-  const user = {
-    id,
-    username,
-    password,
-  };
-
   const foundUser = await findUser({ username });
 
-  if (foundUser) {
+  if (!foundUser) {
     return NextResponse.json(
-      { message: 'User already exists' },
-      { status: 400 }
+      { message: 'User does not exist' },
+      { status: 404 }
     );
   }
 
-  await createUser(user);
+  if (foundUser.password !== password) {
+    return NextResponse.json(
+      { message: 'Passwords do not match' },
+      { status: 401 }
+    );
+  }
 
-  const accessToken = generateJWT(user);
+  const accessToken = generateJWT(foundUser);
   const expire = getExpireDate();
 
   const data = {
-    id,
+    id: foundUser.id,
     accessToken,
     expire,
   };

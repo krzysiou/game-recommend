@@ -33,7 +33,7 @@ const Game: React.FC<PanelProps> = ({ gameBundle }) => {
 
   const handleScore = async (scoreValue: number) => {
     await axios.post(
-      `${hostname}/api/rate`,
+      `${hostname}/api/game/rate`,
       { score: scoreValue, game },
       {
         headers: { Authorization: `Bearer ${session.accessToken}` },

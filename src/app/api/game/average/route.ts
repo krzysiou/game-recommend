@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-import { getAverageScore } from '../../../database/game/get-average-score';
+import { getAverageScore } from '../../../../database/game/get-average-score';
 
 export const dynamic = 'force-dynamic';
 

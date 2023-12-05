@@ -1,10 +1,10 @@
 import { NextResponse } from 'next/server';
 import { v4 as uuid } from 'uuid';
 
-import type { Game } from '../../../types';
+import type { Game } from '../../../../types';
 
-import { decodeUser } from '../../../utils/jwt-token';
-import { createGame } from '../../../database/game/create-game';
+import { decodeUser } from '../../../../utils/jwt-token';
+import { createGame } from '../../../../database/game/create-game';
 
 type Payload = {
   title: string;

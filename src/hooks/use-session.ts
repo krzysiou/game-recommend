@@ -44,10 +44,13 @@ const useSession = () => {
         return null;
       }
 
-      const { data } = await axios.post<Session>(`${hostname}/api/register`, {
-        username,
-        password,
-      });
+      const { data } = await axios.post<Session>(
+        `${hostname}/api/auth/register`,
+        {
+          username,
+          password,
+        }
+      );
 
       await Cookies.set(COOKIE_NAME, JSON.stringify(data), {
         expires: data.expire,
@@ -63,7 +66,7 @@ const useSession = () => {
       if (!username || !password) {
         return null;
       }
-      const { data } = await axios.post<Session>(`${hostname}/api/login`, {
+      const { data } = await axios.post<Session>(`${hostname}/api/auth/login`, {
         username,
         password,
       });

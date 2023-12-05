@@ -9,7 +9,7 @@ const getAverageParameters = (records) => {
   });
 
   const count = records.length;
-  const average = score / count;
+  const average = Number((score / count).toString().slice(0, 3));
 
   return { average, count };
 };

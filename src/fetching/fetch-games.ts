@@ -8,7 +8,7 @@ const { hostname } = config;
 
 const fetchGameBundles = async () => {
   try {
-    const { data } = await axios.get(`${hostname}/api/games`);
+    const { data } = await axios.get(`${hostname}/api/game/get`);
 
     return data as GameBundle[];
   } catch (error) {

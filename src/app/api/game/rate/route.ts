@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server';
 
-import type { Game } from '../../../types';
+import type { Game } from '../../../../types';
 
-import { decodeUser } from '../../../utils/jwt-token';
-import { rateGame } from '../../../database/game/rate-game';
+import { decodeUser } from '../../../../utils/jwt-token';
+import { rateGame } from '../../../../database/game/rate-game';
 
 type Payload = {
   score: number;

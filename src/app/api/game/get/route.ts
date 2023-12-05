@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-import { getGames } from '../../../database/game/get-games';
+import { getGames } from '../../../../database/game/get-games';
 
 export const dynamic = 'force-dynamic';
 

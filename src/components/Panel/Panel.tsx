@@ -31,7 +31,7 @@ const Panel: React.FC = () => {
     }
 
     await axios.post(
-      `${hostname}/api/create`,
+      `${hostname}/api/game/create`,
       { title, description },
       {
         headers: { Authorization: `Bearer ${session.accessToken}` },

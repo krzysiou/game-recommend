@@ -11,7 +11,7 @@ type AverageData = {
 
 const fetchScore = async (id: string) => {
   try {
-    const { data } = await axios.post(`${hostname}/api/average`, { id });
+    const { data } = await axios.post(`${hostname}/api/game/average`, { id });
 
     return data as AverageData;
   } catch (error) {
