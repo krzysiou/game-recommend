@@ -1,11 +1,9 @@
+import { headers } from 'next/headers';
 import { sign, verify } from 'jsonwebtoken';
 
+import type { User } from '../types';
+
 import { config } from '../config/config';
-type User = {
-  id: string;
-  username: string;
-  password: string;
-};
 
 const generateJWT = (user: User) => {
   const { tokenSecret } = config;
@@ -23,8 +21,20 @@ const verifyJWT = (token: string) => {
   }
 };
 
+const decodeUser = () => {
+  const headersList = headers();
+  const accessToken = headersList.get('authorization').split(' ')[1] as string;
+  if (!accessToken) {
+    return false;
+  }
+
+  const user = verifyJWT(accessToken);
+
+  return user;
+};
+
 const getExpireDate = () => {
   return Date.now() + 7 * 24 * 60 * 60 * 1000;
 };
 
-export { getExpireDate, generateJWT, verifyJWT };
+export { getExpireDate, generateJWT, verifyJWT, decodeUser };

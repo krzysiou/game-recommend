@@ -81,7 +81,7 @@ const Register: React.FC = () => {
       <button type="button" onClick={handleSubmit} className="submit-button">
         Sign in
       </button>
-      <Link href="/register" className="redirect">
+      <Link href="/login" className="redirect">
         Sign in here
       </Link>
     </RegisterStyled>

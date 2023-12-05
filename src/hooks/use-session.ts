@@ -5,6 +5,10 @@ import { usePathname, useRouter } from 'next/navigation';
 import Cookies from 'js-cookie';
 import axios from 'axios';
 
+import { config } from '../config/config';
+
+const { hostname } = config;
+
 type Session = {
   id: string;
   accessToken: string;
@@ -40,7 +44,7 @@ const useSession = () => {
         return null;
       }
 
-      const { data } = await axios.post<Session>(`/api/register`, {
+      const { data } = await axios.post<Session>(`${hostname}/api/register`, {
         username,
         password,
       });
@@ -59,8 +63,7 @@ const useSession = () => {
       if (!username || !password) {
         return null;
       }
-
-      const { data } = await axios.post<Session>(`/api/login`, {
+      const { data } = await axios.post<Session>(`${hostname}/api/login`, {
         username,
         password,
       });
