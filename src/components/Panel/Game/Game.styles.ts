@@ -62,6 +62,7 @@ const GameStyled = styled.div`
     border-radius: 5px;
     width: 300px;
     padding: 5px 0;
+    margin: 5px 0;
   }
 `;
 
