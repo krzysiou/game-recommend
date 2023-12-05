@@ -7,11 +7,12 @@ const getGamesParameters = (records) => {
     const author: User = record.get('user').properties;
     const game: Game = record.get('game').properties;
 
-    return { author, game };
+    return { author, game, score: 0 };
   });
 
   return result;
 };
+
 const getGames = async () => {
   const result = await query(
     `MATCH (user:User)-[:ADDED]->(game:Game) RETURN user, game`

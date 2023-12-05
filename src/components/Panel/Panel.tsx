@@ -9,6 +9,9 @@ import { PanelStyled } from './Panel.styles';
 import { useSession } from '../../hooks/use-session';
 import { Game } from './Game/Game';
 import { fetchGameBundles } from '../../fetching/fetch-games';
+import { config } from '../../config/config';
+
+const { hostname } = config;
 
 const Panel: React.FC = () => {
   const [gameBundles, setGameBundles] = useState<GameBundle[]>([]);
@@ -28,7 +31,7 @@ const Panel: React.FC = () => {
     }
 
     await axios.post(
-      `/api/create`,
+      `${hostname}/api/create`,
       { title, description },
       {
         headers: { Authorization: `Bearer ${session.accessToken}` },
