@@ -12,6 +12,10 @@ const Globals = createGlobalStyle`
     color: ${colors.main};
     background-color: ${colors.light};
   }
+
+  input:focus { 
+    outline:none; 
+  }
 `;
 
 export { Globals };
