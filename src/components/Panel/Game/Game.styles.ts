@@ -1,6 +1,7 @@
 import { styled } from 'styled-components';
 
 import { styleVariables } from '../../../../public/styles/utils/styleVariables';
+import { mediaQuery } from '../../../../public/styles/utils/mediaQuery';
 
 const { colors } = styleVariables;
 
@@ -10,6 +11,10 @@ const GameStyled = styled.div`
   border-radius: 10px;
   margin: 20px;
   width: 300px;
+
+  ${mediaQuery['mobile']} {
+    width: 80%;
+  }
 
   p {
     margin: 5px;
@@ -32,6 +37,10 @@ const GameStyled = styled.div`
     border: none;
     border-radius: 20px;
     color: #000000;
+
+    ${mediaQuery['mobile']} {
+      margin: 5px;
+    }
 
     &:hover {
       background-color: ${colors.accentDark};
@@ -63,6 +72,10 @@ const GameStyled = styled.div`
     width: 300px;
     padding: 5px 0;
     margin: 5px 0;
+
+    ${mediaQuery['mobile']} {
+      width: 100%;
+    }
   }
 `;
 

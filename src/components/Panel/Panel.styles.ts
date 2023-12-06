@@ -5,7 +5,7 @@ import { styleVariables } from '../../../public/styles/utils/styleVariables';
 const { colors } = styleVariables;
 
 const PanelStyled = styled.div`
-  margin: 50px 300px;
+  margin: 20px 0;
   display: flex;
   align-items: center;
   justify-content: center;

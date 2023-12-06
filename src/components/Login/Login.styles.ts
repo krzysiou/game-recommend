@@ -5,7 +5,7 @@ import { styleVariables } from '../../../public/styles/utils/styleVariables';
 const { colors } = styleVariables;
 
 const LoginStyled = styled.div`
-  margin: 100px 300px;
+  margin: 100px 0;
   display: flex;
   align-items: center;
   justify-content: center;
