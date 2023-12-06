@@ -1,6 +1,7 @@
 import { styled } from 'styled-components';
 
 import { styleVariables } from '../../../public/styles/utils/styleVariables';
+import { mediaQuery } from '../../../public/styles/utils/mediaQuery';
 
 const { colors } = styleVariables;
 
@@ -49,6 +50,10 @@ const PanelStyled = styled.div`
       border: none;
       background-color: transparent;
       color: ${colors.accentDark};
+
+      ${mediaQuery['mobile']} {
+        font-size: 18px !important;
+      }
 
       &:focus {
         outline-width: 0;
